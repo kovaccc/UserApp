@@ -1,7 +1,12 @@
 package com.example.userapp.data.api
 
-class ApiHelper(private val apiService: ApiService) {
+import javax.inject.Inject
+import javax.inject.Singleton
 
-    fun getUsers() = apiService.getUsers()
+
+@Singleton
+class ApiHelper @Inject constructor(private val apiServiceImpl: ApiServiceImpl) {
+
+    suspend fun getUsers() = apiServiceImpl.loadUsers()
 
 }

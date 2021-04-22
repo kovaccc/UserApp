@@ -2,12 +2,18 @@ package com.example.userapp.data.repository
 
 import com.example.userapp.data.api.ApiHelper
 import com.example.userapp.data.model.User
-import io.reactivex.Single
+import com.example.userapp.utils.Resource
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getUsers(): Single<List<User>> {
-        return apiHelper.getUsers()
+@Singleton
+class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
+
+    suspend fun getUsers(): Resource<List<User>> {
+        return withContext(IO) {apiHelper.getUsers()}
     }
 
 }

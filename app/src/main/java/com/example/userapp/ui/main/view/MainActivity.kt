@@ -3,6 +3,7 @@ package com.example.userapp.ui.main.view
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -15,18 +16,21 @@ import com.example.userapp.ui.main.adapter.MainAdapter
 import com.example.userapp.ui.base.ViewModelFactory
 import com.example.userapp.ui.main.viewmodel.MainViewModel
 import com.example.userapp.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit var adapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupUI()
-        setupViewModel()
+//        setupViewModel()
         setupObserver()
     }
 
@@ -67,11 +71,11 @@ class MainActivity : AppCompatActivity() {
         adapter.addData(users)
         adapter.notifyDataSetChanged()
     }
-
-    private fun setupViewModel() {
-        mainViewModel = ViewModelProviders.of(
-            this,
-            ViewModelFactory(ApiHelper(ApiServiceImpl()))
-        ).get(MainViewModel::class.java)
-    }
+//
+//    private fun setupViewModel() {
+//        mainViewModel = ViewModelProviders.of(
+//            this,
+//            ViewModelFactory(ApiHelper(ApiServiceImpl()))
+//        ).get(MainViewModel::class.java)
+//    }
 }
