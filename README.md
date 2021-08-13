@@ -14,6 +14,11 @@ The android app lets you:
 ## Tech-stack
 The project seeks to use recommended practices and libraries in Android development.
 - MVVM architecture (Viewmodel + LiveData)
+- Coroutines
+- RecyclerView
+- Retrofit2
+- Gson
+- OkHttp3
 - Kotlin Android Extensions 
 - Hilt dependency injection
 - ...
@@ -21,6 +26,11 @@ The project seeks to use recommended practices and libraries in Android developm
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/75457058/128920066-4b66357c-95fa-409a-9859-979b68e8f1d2.png)
 ![image](https://user-images.githubusercontent.com/75457058/128920117-94ebd9cf-2905-4d0e-8fb9-e7c4c1774de5.png)
+
+
+## Permissions
+UserApp requires the following permissions in AndroidManifest.xml:
+- Internet permission is used for getting response from web service
 
 ## Setup
 1. Clone the repository
